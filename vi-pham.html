@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danh sách vi phạm · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item " onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item " onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item " onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item " onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item active" onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item " onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item " onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item " onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Vi phạm đất đai</div><h1>Phát hiện & xử lý vi phạm đất đai</h1>
+        <p class="desc">Flycam quét → AI đối chiếu bản đồ quản lý đất đai → Cảnh báo → Cán bộ xử lý.</p></div>
+      <div class="actions"><button class="btn">Lọc mức độ</button><button class="btn btn-primary" onclick="openManualReportModal()">+ Ghi nhận thủ công</button></div>
+    </div>
+
+    <div class="hero-banner" style="min-height:120px;padding:20px 26px;background-image:url('assets/photos/violation-after.jpg');background-position:center 65%">
+      <div class="htext"><h2>Phát hiện & xử lý vi phạm đất đai</h2><p>AI đối chiếu ảnh flycam với bản đồ quản lý đất đai để phát hiện thay đổi bất thường.</p></div>
+    </div>
+
+    <div class="workflow" style="margin-bottom:24px">
+      <div class="wf-step done"><b class="small">1. Flycam quét</b><p class="small muted">Tự động thu thập ảnh thực địa định kỳ.</p></div>
+      <div class="wf-step done"><b class="small">2. AI đối chiếu</b><p class="small muted">So sánh với hệ thống bản đồ quản lý đất đai.</p></div>
+      <div class="wf-step"><b class="small">3. Cảnh báo</b><p class="small muted">Đẩy thông báo vi phạm lên Dashboard.</p></div>
+      <div class="wf-step"><b class="small">4. Xử lý</b><p class="small muted">Cán bộ nắm bắt, xử lý minh bạch, chính xác.</p></div>
+    </div>
+
+    <div class="grid g4">
+      <div class="card"><h3>Vi phạm mới</h3><div class="stat">3</div><span class="pill pill-red">Cần xử lý ngay</span></div>
+      <div class="card"><h3>Đang xử lý</h3><div class="stat">5</div><span class="pill pill-amber">Chờ cán bộ địa chính</span></div>
+      <div class="card"><h3>Đã xử lý</h3><div class="stat">12</div><span class="pill pill-green">Trong tháng</span></div>
+      <div class="card"><h3>Tổng diện tích ảnh hưởng</h3><div class="stat">2.4ha</div><span class="pill pill-grey">Từ đầu quý</span></div>
+    </div>
+
+    <div class="section-title"><h2>Danh sách vi phạm</h2></div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Mã VP</th><th>Vị trí</th><th>Loại thay đổi</th><th>Diện tích</th><th>Mức độ</th><th>Phát hiện</th><th>Trạng thái</th><th></th></tr>
+        <tr><td>VP-231</td><td>Thửa 47, Thôn 4</td><td>Xây dựng mới</td><td>~830 m²</td><td><span class="pill pill-red">Cao</span></td><td>26/10/2026</td><td><span class="pill pill-red">Mới</span></td><td style="display:flex;gap:6px"><a class="btn btn-sm" href="vi-pham-chi-tiet.html">Đối chiếu</a><button class="icon-btn" title="Phân công nhanh" onclick="openAssignModal('VP-231','Thửa 47, Thôn 4')">👤</button></td></tr>
+        <tr><td>VP-230</td><td>Thửa 12, Thôn 2</td><td>San lấp mặt bằng</td><td>~410 m²</td><td><span class="pill pill-amber">Trung bình</span></td><td>24/10/2026</td><td><span class="pill pill-amber">Đang xử lý</span></td><td style="display:flex;gap:6px"><a class="btn btn-sm" href="vi-pham-chi-tiet.html">Đối chiếu</a><button class="icon-btn" title="Phân công nhanh" onclick="openAssignModal('VP-230','Thửa 12, Thôn 2')">👤</button></td></tr>
+        <tr><td>VP-229</td><td>Thửa 88, Kênh Bắc</td><td>Lấn chiếm hành lang</td><td>~120 m²</td><td><span class="pill pill-amber">Trung bình</span></td><td>21/10/2026</td><td><span class="pill pill-amber">Đang xử lý</span></td><td style="display:flex;gap:6px"><a class="btn btn-sm" href="vi-pham-chi-tiet.html">Đối chiếu</a><button class="icon-btn" title="Phân công nhanh" onclick="openAssignModal('VP-229','Thửa 88, Kênh Bắc')">👤</button></td></tr>
+        <tr><td>VP-228</td><td>Thửa 5, Thôn 1</td><td>Cơi nới công trình</td><td>~65 m²</td><td><span class="pill pill-grey">Thấp</span></td><td>18/10/2026</td><td><span class="pill pill-green">Đã xử lý</span></td><td style="display:flex;gap:6px"><a class="btn btn-sm" href="vi-pham-chi-tiet.html">Đối chiếu</a><button class="icon-btn" title="Phân công nhanh" onclick="openAssignModal('VP-228','Thửa 5, Thôn 1')">👤</button></td></tr>
+        <tr><td>VP-227</td><td>Thửa 33, Khu QH</td><td>Xây dựng mới</td><td>~290 m²</td><td><span class="pill pill-amber">Trung bình</span></td><td>15/10/2026</td><td><span class="pill pill-green">Đã xử lý</span></td><td style="display:flex;gap:6px"><a class="btn btn-sm" href="vi-pham-chi-tiet.html">Đối chiếu</a><button class="icon-btn" title="Phân công nhanh" onclick="openAssignModal('VP-227','Thửa 33, Khu QH')">👤</button></td></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+function openAssignModal(id, loc){
+  openModal(
+    '<div class="modal-eyebrow">Phân công xử lý nhanh</div>'+
+    '<div class="modal-title">'+id+' · '+loc+'</div>'+
+    '<div class="field"><label>Cán bộ địa chính phụ trách</label><select><option>Phạm Thị D — Địa chính Thôn 4</option><option>Lê Văn E — Địa chính Thôn 2</option><option>Ngô Văn F — Địa chính Thôn 1</option></select></div>'+
+    '<div class="field"><label>Mức độ ưu tiên</label><select><option>Khẩn cấp — xử lý trong 24h</option><option>Bình thường — xử lý trong 5 ngày</option></select></div>'+
+    '<div class="field"><label>Ghi chú giao việc</label><textarea rows="3" placeholder="Yêu cầu xác minh thực địa, chụp bổ sung..."></textarea></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Hủy</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\'Đã phân công xử lý '+id+'\')">Phân công</button>'+
+    '</div>'
+  );
+}
+function openManualReportModal(){
+  openModal(
+    '<div class="modal-eyebrow">Ghi nhận vi phạm</div>'+
+    '<div class="modal-title">Ghi nhận thủ công</div>'+
+    '<div class="modal-sub">Dùng khi cán bộ phát hiện vi phạm ngoài chu kỳ quét tự động của flycam.</div>'+
+    '<div class="field-row">'+
+      '<div class="field"><label>Vị trí / Thửa đất</label><input type="text" placeholder="VD: Thửa 20, Thôn 3"></div>'+
+      '<div class="field"><label>Loại thay đổi</label><select><option>Xây dựng mới</option><option>San lấp mặt bằng</option><option>Lấn chiếm hành lang</option><option>Cơi nới công trình</option></select></div>'+
+    '</div>'+
+    '<div class="field-row">'+
+      '<div class="field"><label>Diện tích ước tính (m²)</label><input type="text" placeholder="VD: 150"></div>'+
+      '<div class="field"><label>Mức độ</label><select><option>Cao</option><option>Trung bình</option><option>Thấp</option></select></div>'+
+    '</div>'+
+    '<div class="field"><label>Ảnh hiện trạng</label><input type="file"></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Hủy</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\'Đã ghi nhận vi phạm mới vào hệ thống\')">Ghi nhận</button>'+
+    '</div>'
+  );
+}
+</script>
+</body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quản lý thiết bị Drone · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item active" onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item " onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item " onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item " onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item " onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item " onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item " onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item " onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Vận hành</div><h1>Quản lý thiết bị Drone</h1>
+        <p class="desc">Thống kê vòng đời, cấu hình kỹ thuật, lịch sử bảo trì toàn bộ đội bay.</p></div>
+      <div class="actions"><button class="btn btn-primary" onclick="openAddDeviceModal()">+ Thêm thiết bị</button></div>
+    </div>
+
+    <div class="hero-banner" style="min-height:130px;padding:20px 26px;background-image:url('assets/photos/hero-drone-fleet.jpg');background-position:center 50%">
+      <div class="htext"><h2>Đội bay & thiết bị</h2><p>Vòng đời thiết bị, cấu hình kỹ thuật và lịch bảo trì được quản lý tập trung.</p></div>
+    </div>
+
+    <div class="grid g4">
+      <div class="card"><h3>Tổng số thiết bị</h3><div class="stat">8</div></div>
+      <div class="card"><h3>Đang hoạt động</h3><div class="stat">3</div><div class="stat-sub"><span class="dot dot-green"></span> Sẵn sàng bay</div></div>
+      <div class="card"><h3>Đang bảo trì</h3><div class="stat">1</div><div class="stat-sub"><span class="dot dot-amber"></span> VN-887</div></div>
+      <div class="card"><h3>Giờ bay tích lũy (tháng)</h3><div class="stat">146h</div></div>
+    </div>
+
+    <div class="section-title"><h2>Danh sách thiết bị</h2><span class="link small muted">Bấm vào một dòng để xem chi tiết</span></div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Mã Drone</th><th>Model</th><th>Trạng thái</th><th>Pin</th><th>Giờ bay tích lũy</th><th>Bảo trì tiếp theo</th><th>Người phụ trách</th><th></th></tr>
+        <tr class="row-click" onclick="openDeviceModal('VN-883')"><td><b>VN-883</b></td><td>DJI Matrice 350</td><td><span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span></td><td>78%</td><td>320h</td><td>12/11/2026</td><td>Trần Văn B</td><td class="link">Chi tiết →</td></tr>
+        <tr class="row-click" onclick="openDeviceModal('VN-884')"><td><b>VN-884</b></td><td>DJI Matrice 350</td><td><span class="pill pill-green"><span class="dot dot-green"></span>Sẵn sàng</span></td><td>100%</td><td>210h</td><td>02/12/2026</td><td>Lê Thị C</td><td class="link">Chi tiết →</td></tr>
+        <tr class="row-click" onclick="openDeviceModal('VN-885')"><td><b>VN-885</b></td><td>DJI Mavic 3E</td><td><span class="pill pill-grey">Ngừng hoạt động</span></td><td>—</td><td>540h</td><td>—</td><td>Chưa gán</td><td class="link">Chi tiết →</td></tr>
+        <tr class="row-click" onclick="openDeviceModal('VN-886')"><td><b>VN-886</b></td><td>DJI Mavic 3E</td><td><span class="pill pill-green"><span class="dot dot-green"></span>Sẵn sàng</span></td><td>92%</td><td>128h</td><td>18/12/2026</td><td>Trần Văn B</td><td class="link">Chi tiết →</td></tr>
+        <tr class="row-click" onclick="openDeviceModal('VN-887')"><td><b>VN-887</b></td><td>DJI Matrice 350</td><td><span class="pill pill-amber"><span class="dot dot-amber"></span>Bảo trì</td><td>—</td><td>402h</td><td>Đang thực hiện</td><td>Xưởng kỹ thuật</td><td class="link">Chi tiết →</td></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+var DEVICES = {
+  'VN-883': {model:'DJI Matrice 350 RTK', status:'<span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span>', battery:'78%', hours:'320h', camera:'Zenmuse P1 (45MP)', range:'12km', endurance:'55 phút', next:'12/11/2026', owner:'Trần Văn B', pos:'21.02°N, 105.83°E · Thôn 2', img:'assets/photos/aerial-3.jpg',
+    history:['26/08/2026 — Thay cánh quạt, hiệu chuẩn IMU','14/06/2026 — Kiểm tra định kỳ 300h','02/03/2026 — Cập nhật firmware v4.2']},
+  'VN-884': {model:'DJI Matrice 350 RTK', status:'<span class="pill pill-green"><span class="dot dot-green"></span>Sẵn sàng</span>', battery:'100%', hours:'210h', camera:'Zenmuse P1 (45MP)', range:'12km', endurance:'55 phút', next:'02/12/2026', owner:'Lê Thị C', pos:'21.04°N, 105.80°E · Sân đỗ trung tâm', img:'assets/photos/aerial-1.jpg',
+    history:['10/09/2026 — Kiểm tra định kỳ 200h','15/05/2026 — Thay pin mới']},
+  'VN-885': {model:'DJI Mavic 3E', status:'<span class="pill pill-grey">Ngừng hoạt động</span>', battery:'—', hours:'540h', camera:'Mavic Enterprise RTK', range:'8km', endurance:'45 phút', next:'Chưa lên lịch', owner:'Chưa gán', pos:'Kho thiết bị xã', img:'assets/photos/aerial-5.jpg',
+    history:['20/01/2026 — Ngừng hoạt động do lỗi cảm biến GPS','05/12/2025 — Kiểm tra định kỳ 500h']},
+  'VN-886': {model:'DJI Mavic 3E', status:'<span class="pill pill-green"><span class="dot dot-green"></span>Sẵn sàng</span>', battery:'92%', hours:'128h', camera:'Mavic Enterprise RTK', range:'8km', endurance:'45 phút', next:'18/12/2026', owner:'Trần Văn B', pos:'21.041°N, 105.798°E · Kênh Bắc', img:'assets/photos/aerial-4.jpg',
+    history:['28/07/2026 — Kiểm tra định kỳ 100h']},
+  'VN-887': {model:'DJI Matrice 350 RTK', status:'<span class="pill pill-amber"><span class="dot dot-amber"></span>Đang bảo trì</span>', battery:'—', hours:'402h', camera:'Zenmuse P1 (45MP)', range:'12km', endurance:'55 phút', next:'Đang thực hiện', owner:'Xưởng kỹ thuật', pos:'Xưởng bảo trì trung tâm', img:'assets/photos/aerial-6.jpg',
+    history:['24/10/2026 — Phát hiện lỗi động cơ, đưa vào bảo trì','01/07/2026 — Kiểm tra định kỳ 400h']}
+};
+function openDeviceModal(id){
+  var d = DEVICES[id];
+  var histHtml = d.history.map(function(h){return '<p class="small" style="margin-bottom:8px">'+h+'</p>';}).join('');
+  openModal(
+    '<div class="modal-eyebrow">Thiết bị Drone</div>'+
+    '<div class="modal-title">'+id+' · '+d.model+'</div>'+
+    '<div class="modal-sub">Phụ trách: '+d.owner+' &nbsp;·&nbsp; Trạng thái: '+d.status+'</div>'+
+    '<div class="mtabs">'+
+      '<div class="mtab active" onclick="modalTab(this,\'spec\')">Thông số kỹ thuật</div>'+
+      '<div class="mtab" onclick="modalTab(this,\'hist\')">Lịch sử bảo trì</div>'+
+      '<div class="mtab" onclick="modalTab(this,\'pos\')">Vị trí hiện tại</div>'+
+    '</div>'+
+    '<div class="mpanel" data-mpanel="spec">'+
+      '<div class="kv-row"><span class="muted">Camera</span><b>'+d.camera+'</b></div>'+
+      '<div class="kv-row"><span class="muted">Tầm bay tối đa</span><b>'+d.range+'</b></div>'+
+      '<div class="kv-row"><span class="muted">Thời lượng pin</span><b>'+d.endurance+'</b></div>'+
+      '<div class="kv-row"><span class="muted">Pin hiện tại</span><b>'+d.battery+'</b></div>'+
+      '<div class="kv-row"><span class="muted">Giờ bay tích lũy</span><b>'+d.hours+'</b></div>'+
+      '<div class="kv-row"><span class="muted">Bảo trì tiếp theo</span><b>'+d.next+'</b></div>'+
+    '</div>'+
+    '<div class="mpanel" data-mpanel="hist" style="display:none">'+histHtml+'</div>'+
+    '<div class="mpanel" data-mpanel="pos" style="display:none">'+
+      '<div class="map-mock" style="min-height:180px;background:url(\''+d.img+'\') center/cover"><div class="map-pin" style="top:45%;left:42%"></div></div>'+
+      '<p class="small muted" style="margin-top:8px">'+d.pos+'</p>'+
+    '</div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Đóng</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\''+id+' — đã gửi lệnh cập nhật lịch bảo trì\')">Lên lịch bảo trì</button>'+
+    '</div>'
+  , true);
+}
+function openAddDeviceModal(){
+  openModal(
+    '<div class="modal-eyebrow">Thiết bị Drone</div>'+
+    '<div class="modal-title">Thêm thiết bị mới</div>'+
+    '<div class="modal-sub">Khai báo drone mới vào đội bay của xã.</div>'+
+    '<div class="field"><label>Mã Drone</label><input type="text" placeholder="VD: VN-888"></div>'+
+    '<div class="field-row">'+
+      '<div class="field"><label>Model</label><select><option>DJI Matrice 350 RTK</option><option>DJI Mavic 3E</option></select></div>'+
+      '<div class="field"><label>Người phụ trách</label><select><option>Trần Văn B</option><option>Lê Thị C</option></select></div>'+
+    '</div>'+
+    '<div class="field"><label>Ghi chú</label><textarea rows="2" placeholder="Cấu hình, phụ kiện đi kèm..."></textarea></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Hủy</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\'Đã thêm thiết bị mới vào đội bay\')">Lưu thiết bị</button>'+
+    '</div>'
+  );
+}
+</script>
+</body></html>

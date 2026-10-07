@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lập kế hoạch bay · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item " onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item active" onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item " onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item " onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item " onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item " onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item " onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item " onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Vận hành</div><h1>Lập kế hoạch bay</h1>
+        <p class="desc">Chiến lược giám sát đa chiều — chọn kiểu nhiệm vụ phù hợp với khu vực cần giám sát.</p></div>
+      <div class="actions"><button class="btn btn-primary" onclick="openSaveMissionModal()">Lưu nhiệm vụ</button></div>
+    </div>
+
+    <div class="hero-banner" style="min-height:130px;padding:20px 26px;background-image:url('assets/photos/hero-mission-planning.jpg');background-position:center 45%">
+      <div class="htext"><h2>Chiến lược giám sát đa chiều</h2><p>Chọn kiểu nhiệm vụ phù hợp — hệ thống tự tính lộ trình, độ cao và tốc độ tối ưu.</p></div>
+    </div>
+
+    <div class="section-title"><h2>1. Chọn loại nhiệm vụ bay</h2></div>
+    <div class="grid g4">
+      <div class="type-card selected"><div class="ico">📍</div><b>Tuyến & Điểm</b><span>Lộ trình kiểm tra liên tục các khu vực trọng điểm.</span></div>
+      <div class="type-card"><div class="ico">▦</div><b>Quét vùng (Grid Area)</b><span>Vẽ khu vực trên bản đồ, hệ thống tự tính lộ trình tối ưu.</span></div>
+      <div class="type-card"><div class="ico">〰</div><b>Bay hành lang (Corridor)</b><span>Bám sát tuyến đường, kênh mương, dự án theo dải.</span></div>
+      <div class="type-card"><div class="ico">◎</div><b>Quét điểm</b><span>Vòng lặp chi tiết quanh một công trình cụ thể.</span></div>
+    </div>
+
+    <div class="section-title"><h2>2. Thiết lập khu vực & tham số</h2></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Khu vực trên bản đồ</h3>
+        <div class="map-mock" id="planMap" style="min-height:260px;background:url('assets/photos/aerial-4.jpg') center/cover;cursor:crosshair" onclick="dropPin(event)">
+          <div class="map-pin" style="top:30%;left:30%"></div>
+          <div class="map-pin" style="top:32%;left:62%"></div>
+          <div class="map-pin" style="top:60%;left:55%"></div>
+          <div class="map-pin" style="top:58%;left:26%"></div>
+        </div>
+        <p class="small muted" style="margin-top:8px">Nhấp vào bản đồ để vẽ vùng quét — hệ thống tự tính độ cao, tốc độ, góc camera tối ưu.</p>
+      </div>
+      <div class="card">
+        <h3>Tham số nhiệm vụ</h3>
+        <div class="field"><label>Tên nhiệm vụ</label><input id="mName" type="text" value="Quét vùng Thôn 2 — Đợt tháng 10"></div>
+        <div class="field-row">
+          <div class="field"><label>Độ cao bay (m)</label><input id="mAlt" type="text" value="80"></div>
+          <div class="field"><label>Tốc độ (m/s)</label><input id="mSpd" type="text" value="6"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Drone thực hiện</label><select id="mDrone"><option>VN-883</option><option>VN-884</option><option>VN-886</option></select></div>
+          <div class="field"><label>Lịch bay</label><input id="mSched" type="text" value="28/10/2026 · 06:30"></div>
+        </div>
+        <div class="field"><label>Lặp lại</label><select id="mRepeat"><option>Hàng tuần (tự động đồng bộ)</option><option>Một lần</option><option>Hàng tháng</option></select></div>
+      </div>
+    </div>
+
+    <div class="section-title"><h2>Nhiệm vụ đã lên lịch</h2><span class="link small muted">Bấm vào một dòng để xem chi tiết</span></div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Mã NV</th><th>Tên nhiệm vụ</th><th>Loại</th><th>Drone</th><th>Lịch bay</th><th>Trạng thái</th></tr>
+        <tr class="row-click" onclick="openMissionModal('NV-104')"><td>NV-104</td><td>Quét vùng Thôn 2</td><td>Quét vùng</td><td>VN-883</td><td>28/10 · 06:30</td><td><span class="pill pill-amber">Chờ thực hiện</span></td></tr>
+        <tr class="row-click" onclick="openMissionModal('NV-103')"><td>NV-103</td><td>Hành lang kênh Bắc</td><td>Hành lang</td><td>VN-886</td><td>27/10 · 15:00</td><td><span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span></td></tr>
+        <tr class="row-click" onclick="openMissionModal('NV-102')"><td>NV-102</td><td>Quét điểm khu QH mới</td><td>Quét điểm</td><td>VN-884</td><td>26/10 · 09:00</td><td><span class="pill pill-grey">Hoàn thành</span></td></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+var pinN = 0;
+function dropPin(e){
+  pinN++;
+  var rect = e.currentTarget.getBoundingClientRect();
+  var x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+  var y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+  var pin = document.createElement('div');
+  pin.className = 'map-pin';
+  pin.style.top = y+'%'; pin.style.left = x+'%';
+  e.currentTarget.appendChild(pin);
+  showToast('Đã thêm điểm mốc #'+pinN+' cho vùng quét');
+}
+function openSaveMissionModal(){
+  var name = document.getElementById('mName').value;
+  var alt = document.getElementById('mAlt').value;
+  var spd = document.getElementById('mSpd').value;
+  var drone = document.getElementById('mDrone').value;
+  var sched = document.getElementById('mSched').value;
+  openModal(
+    '<div class="modal-eyebrow">Xác nhận nhiệm vụ bay</div>'+
+    '<div class="modal-title">'+name+'</div>'+
+    '<div class="modal-sub">Kiểm tra lại thông số trước khi đưa vào lịch bay tự động.</div>'+
+    '<div class="kv-row"><span class="muted">Độ cao bay</span><b>'+alt+' m</b></div>'+
+    '<div class="kv-row"><span class="muted">Tốc độ</span><b>'+spd+' m/s</b></div>'+
+    '<div class="kv-row"><span class="muted">Drone thực hiện</span><b>'+drone+'</b></div>'+
+    '<div class="kv-row"><span class="muted">Lịch bay</span><b>'+sched+'</b></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Chỉnh sửa thêm</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\'Đã lưu nhiệm vụ và đồng bộ lịch bay tự động\')">✓ Xác nhận & Lưu</button>'+
+    '</div>'
+  );
+}
+var MISSIONS = {
+  'NV-104':{name:'Quét vùng Thôn 2', type:'Quét vùng', drone:'VN-883', sched:'28/10/2026 · 06:30', status:'<span class="pill pill-amber">Chờ thực hiện</span>', progress:0, img:'assets/photos/aerial-4.jpg'},
+  'NV-103':{name:'Hành lang kênh Bắc', type:'Hành lang', drone:'VN-886', sched:'27/10/2026 · 15:00', status:'<span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span>', progress:45, img:'assets/photos/aerial-2.jpg'},
+  'NV-102':{name:'Quét điểm khu QH mới', type:'Quét điểm', drone:'VN-884', sched:'26/10/2026 · 09:00', status:'<span class="pill pill-grey">Hoàn thành</span>', progress:100, img:'assets/photos/aerial-5.jpg'}
+};
+function openMissionModal(id){
+  var m = MISSIONS[id];
+  openModal(
+    '<div class="modal-eyebrow">Nhiệm vụ bay · '+id+'</div>'+
+    '<div class="modal-title">'+m.name+'</div>'+
+    '<div class="modal-sub">Loại: '+m.type+' · Drone: '+m.drone+' · '+m.status+'</div>'+
+    '<div class="map-mock" style="min-height:200px;background:url(\''+m.img+'\') center/cover;margin-bottom:14px"></div>'+
+    '<p class="small" style="margin-bottom:6px">Tiến độ hoàn thành <b style="float:right">'+m.progress+'%</b></p>'+
+    '<div class="bar-track"><div class="bar-fill" style="width:'+m.progress+'%"></div></div>'+
+    '<div class="kv-row" style="margin-top:14px"><span class="muted">Lịch bay</span><b>'+m.sched+'</b></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Đóng</button>'+
+      '<button class="btn" onclick="showToast(\'Đã hủy nhiệm vụ '+id+'\')">Hủy nhiệm vụ</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();location=\'giam-sat.html\'">Xem giám sát trực tiếp</button>'+
+    '</div>'
+  );
+}
+</script>
+</body></html>

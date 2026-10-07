@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thư viện lưu trữ · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item " onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item " onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item " onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item active" onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item " onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item " onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item " onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item " onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Vận hành</div><h1>Thư viện lưu trữ</h1>
+        <p class="desc">Tập trung hóa hình ảnh/video, dễ dàng tra cứu và đối chiếu lịch sử theo tọa độ.</p></div>
+      <div class="actions"><button class="btn">Lọc theo tọa độ</button><button class="btn btn-primary">Xuất dữ liệu</button></div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" data-target="all">Tất cả (128)</div>
+      <div class="tab" data-target="img">Ảnh (86)</div>
+      <div class="tab" data-target="vid">Video (42)</div>
+      <div class="tab" data-target="flag">Đánh dấu nghi vấn (7)</div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(6,1fr);gap:14px">
+      <div class="thumb" style="background-image:url('assets/photos/aerial-1.jpg')" onclick="openMediaModal(0)"><span class="tag">26/10 · Thôn 2</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-2.jpg')" onclick="openMediaModal(1)"><span class="play">▶</span><span class="tag">26/10 · Thôn 2</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-3.jpg')" onclick="openMediaModal(2)"><span class="tag">26/10 · Kênh Bắc</span></div>
+      <div class="thumb flag" style="background-image:url('assets/photos/violation-after.jpg')" onclick="openMediaModal(3)"><span class="tag">25/10 · Thôn 4 ⚠</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-4.jpg')" onclick="openMediaModal(4)"><span class="play">▶</span><span class="tag">25/10 · Thôn 4</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-5.jpg')" onclick="openMediaModal(5)"><span class="tag">24/10 · Khu QH</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-6.jpg')" onclick="openMediaModal(6)"><span class="tag">24/10 · Thôn 1</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-1.jpg')" onclick="openMediaModal(7)"><span class="play">▶</span><span class="tag">23/10 · Thôn 3</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-2.jpg')" onclick="openMediaModal(8)"><span class="tag">23/10 · Kênh Bắc</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-3.jpg')" onclick="openMediaModal(9)"><span class="tag">22/10 · Thôn 2</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-4.jpg')" onclick="openMediaModal(10)"><span class="play">▶</span><span class="tag">22/10 · Thôn 4</span></div>
+      <div class="thumb" style="background-image:url('assets/photos/aerial-5.jpg')" onclick="openMediaModal(11)"><span class="tag">21/10 · Khu QH</span></div>
+    </div>
+
+    <div class="section-title"><h2>So sánh theo tọa độ (Timeline)</h2></div>
+    <div class="card">
+      <p class="small muted" style="margin-bottom:12px">Tọa độ 21.031°N, 105.812°E — thửa đất số 47, Thôn 4</p>
+      <div class="grid g4">
+        <div><div class="thumb" style="background-image:url('assets/photos/violation-before.jpg')" onclick="openMediaModal(12)"><span class="tag">Th 6/2026</span></div></div>
+        <div><div class="thumb" style="background-image:url('assets/photos/violation-before.jpg')" onclick="openMediaModal(13)"><span class="tag">Th 8/2026</span></div></div>
+        <div><div class="thumb" style="background-image:url('assets/photos/violation-before.jpg')" onclick="openMediaModal(14)"><span class="tag">Th 9/2026</span></div></div>
+        <div><div class="thumb flag" style="background-image:url('assets/photos/violation-after.jpg')" onclick="openMediaModal(15)"><span class="tag">Th 10/2026 · Thay đổi</span></div></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+var MEDIA = [
+  {type:'Ảnh', img:'assets/photos/aerial-1.jpg', date:'26/10/2026 · 06:32', loc:'Thôn 2', coord:'21.020°N, 105.828°E', drone:'VN-883', mission:'Quét vùng Thôn 2', size:'8.4 MB'},
+  {type:'Video', img:'assets/photos/aerial-2.jpg', date:'26/10/2026 · 06:35', loc:'Thôn 2', coord:'21.021°N, 105.829°E', drone:'VN-883', mission:'Quét vùng Thôn 2', size:'42 MB · 0:38'},
+  {type:'Ảnh', img:'assets/photos/aerial-3.jpg', date:'26/10/2026 · 15:02', loc:'Kênh Bắc', coord:'21.041°N, 105.798°E', drone:'VN-886', mission:'Hành lang kênh Bắc', size:'7.9 MB'},
+  {type:'Ảnh · Nghi vấn', img:'assets/photos/violation-after.jpg', date:'25/10/2026 · 09:14', loc:'Thôn 4', coord:'21.031°N, 105.812°E', drone:'VN-884', mission:'Quét điểm khu QH', size:'9.1 MB'},
+  {type:'Video', img:'assets/photos/aerial-4.jpg', date:'25/10/2026 · 09:20', loc:'Thôn 4', coord:'21.030°N, 105.811°E', drone:'VN-884', mission:'Quét điểm khu QH', size:'51 MB · 0:52'},
+  {type:'Ảnh', img:'assets/photos/aerial-5.jpg', date:'24/10/2026 · 10:05', loc:'Khu QH', coord:'21.028°N, 105.809°E', drone:'VN-886', mission:'Quét điểm khu QH mới', size:'8.0 MB'},
+  {type:'Ảnh', img:'assets/photos/aerial-6.jpg', date:'24/10/2026 · 11:40', loc:'Thôn 1', coord:'21.018°N, 105.822°E', drone:'VN-883', mission:'Tuần tra định kỳ', size:'7.6 MB'},
+  {type:'Video', img:'assets/photos/aerial-1.jpg', date:'23/10/2026 · 08:12', loc:'Thôn 3', coord:'21.033°N, 105.818°E', drone:'VN-886', mission:'Hành lang kênh Bắc', size:'39 MB · 0:31'},
+  {type:'Ảnh', img:'assets/photos/aerial-2.jpg', date:'23/10/2026 · 08:20', loc:'Kênh Bắc', coord:'21.040°N, 105.799°E', drone:'VN-886', mission:'Hành lang kênh Bắc', size:'8.2 MB'},
+  {type:'Ảnh', img:'assets/photos/aerial-3.jpg', date:'22/10/2026 · 07:02', loc:'Thôn 2', coord:'21.022°N, 105.827°E', drone:'VN-883', mission:'Quét vùng Thôn 2', size:'7.8 MB'},
+  {type:'Video', img:'assets/photos/aerial-4.jpg', date:'22/10/2026 · 07:10', loc:'Thôn 4', coord:'21.031°N, 105.813°E', drone:'VN-884', mission:'Quét điểm khu QH', size:'44 MB · 0:35'},
+  {type:'Ảnh', img:'assets/photos/aerial-5.jpg', date:'21/10/2026 · 09:44', loc:'Khu QH', coord:'21.027°N, 105.808°E', drone:'VN-886', mission:'Quét điểm khu QH mới', size:'8.1 MB'},
+  {type:'Ảnh · Timeline', img:'assets/photos/violation-before.jpg', date:'Tháng 6/2026', loc:'Thửa 47, Thôn 4', coord:'21.031°N, 105.812°E', drone:'VN-884', mission:'Kiểm tra định kỳ tọa độ', size:'—'},
+  {type:'Ảnh · Timeline', img:'assets/photos/violation-before.jpg', date:'Tháng 8/2026', loc:'Thửa 47, Thôn 4', coord:'21.031°N, 105.812°E', drone:'VN-884', mission:'Kiểm tra định kỳ tọa độ', size:'—'},
+  {type:'Ảnh · Timeline', img:'assets/photos/violation-before.jpg', date:'Tháng 9/2026', loc:'Thửa 47, Thôn 4', coord:'21.031°N, 105.812°E', drone:'VN-884', mission:'Kiểm tra định kỳ tọa độ', size:'—'},
+  {type:'Ảnh · Timeline · Thay đổi', img:'assets/photos/violation-after.jpg', date:'Tháng 10/2026', loc:'Thửa 47, Thôn 4', coord:'21.031°N, 105.812°E', drone:'VN-884', mission:'Kiểm tra định kỳ tọa độ', size:'—'}
+];
+function openMediaModal(i){
+  var m = MEDIA[i];
+  openModal(
+    '<div class="lightbox-img" style="background-image:url(\''+m.img+'\')"><span class="cap">'+m.type+'</span></div>'+
+    '<div class="modal-title">'+m.loc+' · '+m.date+'</div>'+
+    '<div class="modal-sub">Nhiệm vụ: '+m.mission+'</div>'+
+    '<div class="kv-row"><span class="muted">Tọa độ GPS</span><b>'+m.coord+'</b></div>'+
+    '<div class="kv-row"><span class="muted">Drone thực hiện</span><b>'+m.drone+'</b></div>'+
+    '<div class="kv-row"><span class="muted">Dung lượng</span><b>'+m.size+'</b></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Đóng</button>'+
+      '<button class="btn" onclick="showToast(\'Đã tải xuống tệp gốc\')">⬇ Tải xuống</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\'Đã đánh dấu để cán bộ địa chính xác minh\')">⚠ Đánh dấu nghi vấn</button>'+
+    '</div>'
+  );
+}
+</script>
+</body></html>

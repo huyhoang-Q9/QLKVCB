@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giám sát Real-time · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item " onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item " onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item active" onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item " onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item " onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item " onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item " onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item " onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Vận hành</div><h1>Giám sát Real-time</h1>
+        <p class="desc">Theo dõi tọa độ trực tiếp, nhận dữ liệu ngay lập tức từ drone đang bay.</p></div>
+      <div class="actions"><span class="pill pill-green"><span class="dot dot-green"></span>VN-883 đang truyền dữ liệu</span></div>
+    </div>
+
+    <div class="hero-banner" style="min-height:120px;padding:20px 26px;background-image:url('assets/photos/hero-ground-control.jpg');background-position:center 35%">
+      <div class="htext"><h2>Theo dõi hành trình bay trực tiếp</h2><p>Tọa độ, độ cao, tốc độ và luồng hình ảnh được truyền về theo thời gian thực.</p></div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:2fr 1fr">
+      <div class="card">
+        <h3>Bản đồ tọa độ trực tiếp</h3>
+        <div class="map-mock" style="min-height:380px;background:url('assets/photos/aerial-1.jpg') center/cover">
+          <div class="map-pin" style="top:44%;left:48%;cursor:pointer" onclick="openFlightModal('VN-883')"></div>
+          <div class="map-label" style="top:36%;left:50%;cursor:pointer" onclick="openFlightModal('VN-883')">VN-883 · 21.023°N, 105.831°E</div>
+          <div class="map-pin" style="top:62%;left:70%;cursor:pointer" onclick="openFlightModal('VN-886')"></div>
+          <div class="map-label" style="top:68%;left:66%;cursor:pointer" onclick="openFlightModal('VN-886')">VN-886</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Luồng camera trực tiếp</h3>
+        <div class="thumb" style="aspect-ratio:16/10;background-image:url('assets/photos/camera-feed.jpg');cursor:pointer" onclick="openFlightModal('VN-883')"><span class="play">▶</span></div>
+        <div class="divider"></div>
+        <p class="small" style="margin-bottom:6px"><b>Độ cao:</b> 82m</p>
+        <p class="small" style="margin-bottom:6px"><b>Tốc độ:</b> 5.8 m/s</p>
+        <p class="small" style="margin-bottom:6px"><b>Pin:</b> 71%</p>
+        <p class="small"><b>Thời gian bay còn lại:</b> ~24 phút</p>
+      </div>
+    </div>
+
+    <div class="section-title"><h2>Drone đang hoạt động</h2><span class="link small muted">Bấm vào một dòng để xem chi tiết chuyến bay</span></div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Drone</th><th>Nhiệm vụ</th><th>Tọa độ hiện tại</th><th>Độ cao</th><th>Pin</th><th>Trạng thái</th></tr>
+        <tr class="row-click" onclick="openFlightModal('VN-883')"><td><b>VN-883</b></td><td>Quét vùng Thôn 2</td><td>21.023°N, 105.831°E</td><td>82m</td><td>71%</td><td><span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span></td></tr>
+        <tr class="row-click" onclick="openFlightModal('VN-886')"><td><b>VN-886</b></td><td>Hành lang kênh Bắc</td><td>21.041°N, 105.798°E</td><td>65m</td><td>54%</td><td><span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span></td></tr>
+        <tr class="row-click" onclick="openFlightModal('VN-884')"><td><b>VN-884</b></td><td>—</td><td>Sân đỗ trung tâm</td><td>0m</td><td>100%</td><td><span class="pill pill-grey">Chờ lệnh</span></td></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+var FLIGHTS = {
+  'VN-883': {mission:'Quét vùng Thôn 2', coord:'21.023°N, 105.831°E', alt:'82m', spd:'5.8 m/s', batt:'71%', remain:'~24 phút', status:'<span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span>', img:'assets/photos/aerial-1.jpg'},
+  'VN-886': {mission:'Hành lang kênh Bắc', coord:'21.041°N, 105.798°E', alt:'65m', spd:'6.4 m/s', batt:'54%', remain:'~15 phút', status:'<span class="pill pill-green"><span class="dot dot-green"></span>Đang bay</span>', img:'assets/photos/aerial-4.jpg'},
+  'VN-884': {mission:'Chờ lệnh xuất phát', coord:'Sân đỗ trung tâm', alt:'0m', spd:'0 m/s', batt:'100%', remain:'Sẵn sàng', status:'<span class="pill pill-grey">Chờ lệnh</span>', img:'assets/photos/aerial-5.jpg'}
+};
+function openFlightModal(id){
+  var f = FLIGHTS[id];
+  openModal(
+    '<div class="modal-eyebrow">Chuyến bay trực tiếp</div>'+
+    '<div class="modal-title">'+id+' — '+f.mission+'</div>'+
+    '<div class="modal-sub">'+f.status+'</div>'+
+    '<div class="grid g2">'+
+      '<div>'+
+        '<div class="map-mock" style="min-height:220px;background:url(\''+f.img+'\') center/cover"><div class="map-pin" style="top:46%;left:46%"></div></div>'+
+      '</div>'+
+      '<div>'+
+        '<div class="thumb" style="aspect-ratio:16/10;margin-bottom:10px;background-image:url(\'assets/photos/camera-feed.jpg\')"><span class="play">▶</span></div>'+
+        '<div class="kv-row"><span class="muted">Tọa độ</span><b>'+f.coord+'</b></div>'+
+        '<div class="kv-row"><span class="muted">Độ cao</span><b>'+f.alt+'</b></div>'+
+        '<div class="kv-row"><span class="muted">Tốc độ</span><b>'+f.spd+'</b></div>'+
+        '<div class="kv-row"><span class="muted">Pin</span><b>'+f.batt+'</b></div>'+
+        '<div class="kv-row"><span class="muted">Thời gian còn lại</span><b>'+f.remain+'</b></div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Đóng</button>'+
+      '<button class="btn" onclick="showToast(\''+id+' — đã tạm dừng nhiệm vụ\')">⏸ Tạm dừng</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\''+id+' — đang quay về điểm cất cánh (RTH)\')">⟲ Return to Home</button>'+
+    '</div>'
+  , true);
+}
+</script>
+</body></html>

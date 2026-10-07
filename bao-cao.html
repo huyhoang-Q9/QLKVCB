@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Báo cáo & thống kê · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item " onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item " onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item " onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item " onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item " onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item " onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item active" onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item " onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Hệ thống</div><h1>Báo cáo & thống kê</h1>
+        <p class="desc">Tạo dựng giá trị kép — hiệu quả cho chính quyền, minh bạch cho người dân.</p></div>
+      <div class="actions"><select class="btn"><option>Tháng 10/2026</option><option>Quý 3/2026</option></select><button class="btn btn-primary">Xuất PDF</button></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Cột: Chính quyền</h3>
+        <div class="flex-between" style="padding:8px 0"><span class="small">Tối ưu hóa — giảm tải tuần tra thủ công</span><b class="small trend-up">−62% nhân lực</b></div>
+        <div class="flex-between" style="padding:8px 0"><span class="small">Tốc độ phát hiện vi phạm</span><b class="small trend-up">Nhanh hơn 4.5 lần</b></div>
+        <div class="flex-between" style="padding:8px 0"><span class="small">Chất lượng quản lý toàn diện</span><b class="small trend-up">+38% độ phủ</b></div>
+      </div>
+      <div class="card">
+        <h3>Cột: Người dân</h3>
+        <div class="flex-between" style="padding:8px 0"><span class="small">Minh bạch thông tin, bằng chứng rõ ràng</span><b class="small" style="color:var(--teal-dark)">128 ảnh/video công khai</b></div>
+        <div class="flex-between" style="padding:8px 0"><span class="small">Giảm khiếu nại kéo dài</span><b class="small" style="color:var(--teal-dark)">−45% khiếu nại</b></div>
+        <div class="flex-between" style="padding:8px 0"><span class="small">Tăng đồng thuận xã hội</span><b class="small" style="color:var(--teal-dark)">92% hài lòng</b></div>
+      </div>
+    </div>
+
+    <div class="section-title"><h2>Vi phạm phát hiện theo tháng</h2></div>
+    <div class="card">
+      <div style="display:flex;align-items:flex-end;gap:18px;height:160px;padding:10px 6px">
+        <div style="flex:1;text-align:center"><div style="height:60px;background:linear-gradient(180deg,#3fd39a,#0f9d78);border-radius:6px 6px 0 0"></div><p class="small muted" style="margin-top:6px">T6</p></div>
+        <div style="flex:1;text-align:center"><div style="height:90px;background:linear-gradient(180deg,#3fd39a,#0f9d78);border-radius:6px 6px 0 0"></div><p class="small muted" style="margin-top:6px">T7</p></div>
+        <div style="flex:1;text-align:center"><div style="height:75px;background:linear-gradient(180deg,#3fd39a,#0f9d78);border-radius:6px 6px 0 0"></div><p class="small muted" style="margin-top:6px">T8</p></div>
+        <div style="flex:1;text-align:center"><div style="height:110px;background:linear-gradient(180deg,#3fd39a,#0f9d78);border-radius:6px 6px 0 0"></div><p class="small muted" style="margin-top:6px">T9</p></div>
+        <div style="flex:1;text-align:center"><div style="height:140px;background:linear-gradient(180deg,#e8877c,#c94b3f);border-radius:6px 6px 0 0"></div><p class="small muted" style="margin-top:6px">T10</p></div>
+      </div>
+    </div>
+
+    <div class="section-title"><h2>Xếp hạng khu vực theo số vi phạm</h2></div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Khu vực</th><th>Số vi phạm</th><th>Diện tích ảnh hưởng</th><th>Tỷ lệ đã xử lý</th></tr>
+        <tr class="row-click" onclick="openRegionModal('Thôn 4')"><td>Thôn 4</td><td>7</td><td>1.2 ha</td><td>71%</td></tr>
+        <tr class="row-click" onclick="openRegionModal('Thôn 2')"><td>Thôn 2</td><td>5</td><td>0.6 ha</td><td>80%</td></tr>
+        <tr class="row-click" onclick="openRegionModal('Kênh Bắc')"><td>Kênh Bắc</td><td>4</td><td>0.3 ha</td><td>50%</td></tr>
+        <tr class="row-click" onclick="openRegionModal('Khu QH mới')"><td>Khu QH mới</td><td>3</td><td>0.3 ha</td><td>100%</td></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+var REGIONS = {
+  'Thôn 4':{count:7, area:'1.2 ha', done:71, high:4, med:2, low:1},
+  'Thôn 2':{count:5, area:'0.6 ha', done:80, high:1, med:3, low:1},
+  'Kênh Bắc':{count:4, area:'0.3 ha', done:50, high:0, med:3, low:1},
+  'Khu QH mới':{count:3, area:'0.3 ha', done:100, high:1, med:2, low:0}
+};
+function openRegionModal(name){
+  var r = REGIONS[name];
+  openModal(
+    '<div class="modal-eyebrow">Chi tiết khu vực</div>'+
+    '<div class="modal-title">'+name+'</div>'+
+    '<div class="modal-sub">'+r.count+' vi phạm được phát hiện · Tổng diện tích ảnh hưởng '+r.area+'</div>'+
+    '<div class="kv-row"><span class="muted">Mức độ Cao</span><b style="color:var(--red)">'+r.high+' vụ</b></div>'+
+    '<div class="kv-row"><span class="muted">Mức độ Trung bình</span><b style="color:var(--amber)">'+r.med+' vụ</b></div>'+
+    '<div class="kv-row"><span class="muted">Mức độ Thấp</span><b>'+r.low+' vụ</b></div>'+
+    '<p class="small" style="margin:14px 0 6px">Tỷ lệ đã xử lý <b style="float:right">'+r.done+'%</b></p>'+
+    '<div class="bar-track"><div class="bar-fill" style="width:'+r.done+'%"></div></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Đóng</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();location=\'vi-pham.html\'">Xem danh sách vi phạm</button>'+
+    '</div>'
+  );
+}
+</script>
+</body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đối chiếu vi phạm · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item " onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item " onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item " onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item " onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item " onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item active" onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item " onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item " onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Vi phạm đất đai / VP-231</div><h1>Phát hiện & xử lý vi phạm đất đai</h1>
+        <p class="desc">Kéo thanh trượt để đối chiếu ảnh trước và sau tại cùng một tọa độ.</p></div>
+      <div class="actions"><span class="pill pill-red">Có dấu hiệu xây dựng mới</span><button class="btn btn-sm" onclick="openFullscreenCompare()">⛶ Trình chiếu toàn màn hình</button></div>
+    </div>
+
+    <div class="compare">
+      <div class="before" style="background:url('assets/photos/violation-before.jpg') center/cover">
+        <div class="cap" style="left:10px">ẢNH TRƯỚC (Before) · 15/08/2026</div>
+      </div>
+      <div class="after-clip">
+        <div class="after" style="background:url('assets/photos/violation-after.jpg') center/cover"></div>
+        <div class="cap" style="right:10px">ẢNH SAU (After) · 26/10/2026</div>
+      </div>
+      <div class="handle"></div>
+      <input type="range" min="0" max="100" value="55">
+    </div>
+
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card">
+        <h3>Kết quả phát hiện thay đổi</h3>
+        <div class="flex-between" style="padding:7px 0"><span class="muted small">Loại thay đổi</span><b class="small" style="color:var(--red)">Xây dựng mới</b></div>
+        <div class="flex-between" style="padding:7px 0"><span class="muted small">Diện tích thay đổi</span><b class="small">~ 830 m²</b></div>
+        <div class="flex-between" style="padding:7px 0"><span class="muted small">Mức độ</span><span class="pill pill-red">Cao</span></div>
+        <div class="flex-between" style="padding:7px 0"><span class="muted small">Thời gian phát hiện A → B</span><b class="small">15/08 → 26/10</b></div>
+      </div>
+      <div class="card">
+        <h3>Vị trí trên bản đồ</h3>
+        <div class="map-mock" style="min-height:140px;background:url('assets/photos/violation-after.jpg') center/cover"><div class="map-pin red" style="top:45%;left:50%"></div></div>
+        <p class="small muted" style="margin-top:8px">Thửa 47, Thôn 4, xã Hòa Bình · 21.031°N, 105.812°E</p>
+      </div>
+      <div class="card">
+        <h3>Đánh giá & đề xuất</h3>
+        <p class="pill pill-red" style="margin-bottom:10px">⚠ Có dấu hiệu xây dựng mới</p>
+        <p class="small">Đề xuất: kiểm tra giấy phép xây dựng và hiện trạng sử dụng đất tại thực địa trong vòng 5 ngày làm việc.</p>
+      </div>
+    </div>
+
+    <div class="section-title"><h2>Luồng xử lý</h2></div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="field"><label>Phân công cán bộ địa chính</label><select id="vpAssign"><option>Phạm Thị D — Địa chính Thôn 4</option><option>Lê Văn E — Địa chính Thôn 2</option></select></div>
+        <div class="field"><label>Trạng thái xử lý</label><select id="vpStatus"><option>Mới phát hiện</option><option>Đang xác minh thực địa</option><option>Đã lập biên bản</option><option>Đã xử lý</option></select></div>
+        <div class="field"><label>Ghi chú xử lý</label><textarea id="vpNote" rows="3" placeholder="Nhập ghi chú, biên bản kiểm tra..."></textarea></div>
+        <button class="btn btn-primary" onclick="openConfirmUpdateModal()">Cập nhật trạng thái</button>
+      </div>
+      <div class="card">
+        <h3>Lịch sử xử lý</h3>
+        <div id="vpHistory">
+          <p class="small" style="margin-bottom:10px"><b>26/10/2026 09:12</b> — Hệ thống AI phát hiện thay đổi, đẩy cảnh báo lên Dashboard.</p>
+          <p class="small" style="margin-bottom:10px"><b>26/10/2026 14:30</b> — Phân công Phạm Thị D xác minh thực địa.</p>
+        </div>
+        <p class="small muted">Đang chờ cập nhật tiếp theo...</p>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+function openFullscreenCompare(){
+  openModal(
+    '<div class="modal-eyebrow">VP-231 · Thửa 47, Thôn 4</div>'+
+    '<div class="modal-title">Đối chiếu ảnh trước / sau</div>'+
+    '<div class="compare" style="aspect-ratio:16/9">'+
+      '<div class="before" style="background:url(\'assets/photos/violation-before.jpg\') center/cover"><div class="cap" style="left:10px">TRƯỚC · 15/08/2026</div></div>'+
+      '<div class="after-clip"><div class="after" style="background:url(\'assets/photos/violation-after.jpg\') center/cover"></div><div class="cap" style="right:10px">SAU · 26/10/2026</div></div>'+
+      '<div class="handle"></div><input type="range" min="0" max="100" value="55">'+
+    '</div>'+
+    '<div class="modal-actions"><button class="btn btn-primary" onclick="closeModal()">Đóng trình chiếu</button></div>'
+  , true);
+  // re-bind slider logic for the newly injected compare element
+  setTimeout(function(){
+    document.querySelectorAll('.modal-box .compare').forEach(function(c){
+      var range = c.querySelector('input[type=range]');
+      var clip = c.querySelector('.after-clip');
+      var handle = c.querySelector('.handle');
+      function upd(){ clip.style.width = range.value+'%'; handle.style.left = range.value+'%'; }
+      range.addEventListener('input', upd); upd();
+    });
+  }, 30);
+}
+function openConfirmUpdateModal(){
+  var assign = document.getElementById('vpAssign').value;
+  var status = document.getElementById('vpStatus').value;
+  var note = document.getElementById('vpNote').value || '(không có ghi chú)';
+  openModal(
+    '<div class="modal-eyebrow">Xác nhận cập nhật</div>'+
+    '<div class="modal-title">VP-231 · Thửa 47, Thôn 4</div>'+
+    '<div class="kv-row"><span class="muted">Cán bộ phụ trách</span><b>'+assign+'</b></div>'+
+    '<div class="kv-row"><span class="muted">Trạng thái mới</span><b>'+status+'</b></div>'+
+    '<div class="kv-row"><span class="muted">Ghi chú</span><b>'+note+'</b></div>'+
+    '<div class="modal-actions">'+
+      '<button class="btn" onclick="closeModal()">Hủy</button>'+
+      '<button class="btn btn-primary" onclick="confirmUpdateApply(\''+status+'\')">✓ Xác nhận cập nhật</button>'+
+    '</div>'
+  );
+}
+function confirmUpdateApply(status){
+  var hist = document.getElementById('vpHistory');
+  var now = new Date();
+  var stamp = ('0'+now.getDate()).slice(-2)+'/'+('0'+(now.getMonth()+1)).slice(-2)+'/2026 '+('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2);
+  var p = document.createElement('p');
+  p.className='small'; p.style.marginBottom='10px';
+  p.innerHTML = '<b>'+stamp+'</b> — Cập nhật trạng thái: <b>'+status+'</b>';
+  hist.appendChild(p);
+  closeModal();
+  showToast('Đã cập nhật trạng thái xử lý VP-231');
+}
+</script>
+</body></html>

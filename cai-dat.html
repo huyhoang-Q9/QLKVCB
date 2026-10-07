@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cài đặt & phân quyền · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item " onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item " onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item " onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item " onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item " onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item " onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item " onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item " onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item active" onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Hệ thống</div><h1>Cài đặt & phân quyền</h1>
+        <p class="desc">Quản lý người dùng, vai trò và khu vực phụ trách trong hệ thống.</p></div>
+      <div class="actions"><button class="btn btn-primary" onclick="openUserModal()">+ Thêm người dùng</button></div>
+    </div>
+
+    <div class="section-title"><h2>Danh sách người dùng</h2></div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Họ tên</th><th>Vai trò</th><th>Đơn vị / Khu vực</th><th>Liên hệ</th><th>Trạng thái</th><th></th></tr>
+        <tr><td><b>Nguyễn Văn A</b></td><td>Cán bộ điều hành</td><td>Toàn xã</td><td>0912 xxx 883</td><td><span class="pill pill-green">Hoạt động</span></td><td class="link" onclick="openUserModal('Nguyễn Văn A','Cán bộ điều hành','Toàn xã','0912 xxx 883')">Sửa</td></tr>
+        <tr><td>Trần Văn B</td><td>Kỹ thuật viên Drone</td><td>Đội bay 1</td><td>0912 xxx 884</td><td><span class="pill pill-green">Hoạt động</span></td><td class="link" onclick="openUserModal('Trần Văn B','Kỹ thuật viên Drone','Đội bay 1','0912 xxx 884')">Sửa</td></tr>
+        <tr><td>Phạm Thị D</td><td>Cán bộ địa chính</td><td>Thôn 4</td><td>0912 xxx 885</td><td><span class="pill pill-green">Hoạt động</span></td><td class="link" onclick="openUserModal('Phạm Thị D','Cán bộ địa chính','Thôn 4','0912 xxx 885')">Sửa</td></tr>
+        <tr><td>Lê Văn E</td><td>Cán bộ địa chính</td><td>Thôn 2</td><td>0912 xxx 886</td><td><span class="pill pill-green">Hoạt động</span></td><td class="link" onclick="openUserModal('Lê Văn E','Cán bộ địa chính','Thôn 2','0912 xxx 886')">Sửa</td></tr>
+        <tr><td>Hoàng Thị F</td><td>Lãnh đạo xã</td><td>Toàn xã</td><td>0912 xxx 887</td><td><span class="pill pill-grey">Tạm khóa</span></td><td class="link" onclick="openUserModal('Hoàng Thị F','Lãnh đạo xã','Toàn xã','0912 xxx 887')">Sửa</td></tr>
+      </table>
+    </div>
+
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card">
+        <h3>Vai trò & quyền hạn</h3>
+        <div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--line)"><span class="small">Quản trị hệ thống</span><span class="small muted">Toàn quyền</span></div>
+        <div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--line)"><span class="small">Cán bộ điều hành</span><span class="small muted">Lập kế hoạch, giám sát, báo cáo</span></div>
+        <div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--line)"><span class="small">Cán bộ địa chính</span><span class="small muted">Xử lý vi phạm được phân công</span></div>
+        <div class="flex-between" style="padding:8px 0"><span class="small">Lãnh đạo xã</span><span class="small muted">Xem báo cáo, thống kê</span></div>
+      </div>
+      <div class="card">
+        <h3>Cấu hình chung</h3>
+        <div class="field"><label>Tên đơn vị</label><input type="text" value="UBND Xã Hòa Bình"></div>
+        <div class="field"><label>Ngưỡng cảnh báo diện tích thay đổi (m²)</label><input type="text" value="50"></div>
+        <div class="field"><label>Chu kỳ quét tự động mặc định</label><select><option>Hàng tuần</option><option>Hai tuần / lần</option><option>Hàng tháng</option></select></div>
+        <button class="btn btn-primary">Lưu cấu hình</button>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script>
+function openUserModal(name, role, unit, phone){
+  var isEdit = !!name;
+  openModal(
+    '<div class="modal-eyebrow">'+(isEdit?'Chỉnh sửa người dùng':'Người dùng mới')+'</div>'+
+    '<div class="modal-title">'+(isEdit?name:'Thêm người dùng')+'</div>'+
+    '<div class="field"><label>Họ tên</label><input type="text" value="'+(name||'')+'"></div>'+
+    '<div class="field-row">'+
+      '<div class="field"><label>Vai trò</label><select>'+
+        ['Cán bộ điều hành','Kỹ thuật viên Drone','Cán bộ địa chính','Lãnh đạo xã'].map(function(r){return '<option'+(r===role?' selected':'')+'>'+r+'</option>';}).join('')+
+      '</select></div>'+
+      '<div class="field"><label>Đơn vị / Khu vực</label><input type="text" value="'+(unit||'')+'"></div>'+
+    '</div>'+
+    '<div class="field"><label>Số điện thoại</label><input type="text" value="'+(phone||'')+'"></div>'+
+    (isEdit ? '<div class="field"><label>Trạng thái tài khoản</label><select><option>Hoạt động</option><option>Tạm khóa</option></select></div>' : '')+
+    '<div class="modal-actions">'+
+      (isEdit ? '<button class="btn" style="color:var(--red);border-color:var(--red-bg)" onclick="closeModal();showToast(\'Đã tạm khóa tài khoản '+name+'\')">Tạm khóa</button>' : '')+
+      '<button class="btn" onclick="closeModal()">Hủy</button>'+
+      '<button class="btn btn-primary" onclick="closeModal();showToast(\''+(isEdit?'Đã lưu thay đổi cho '+name:'Đã thêm người dùng mới')+'\')">Lưu</button>'+
+    '</div>'
+  );
+}
+</script>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tổng quan điều hành · SkyGov Flycam</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><img src="assets/logo-icon-transparent.png" alt="Vietnam Airlines"></div><div><div class="brand-name">Vietnam Airlines</div><div class="brand-sub">SkyOps · Flycam Xã Hòa Bình</div></div></div>
+    <div class="nav-item active" onclick="location='dashboard.html'"><span class="nav-ico">▦</span> Tổng quan</div>
+    <div class="nav-label">Vận hành</div>
+    <div class="nav-item" onclick="location='thiet-bi.html'"><span class="nav-ico">🛰</span> Thiết bị Drone</div>
+    <div class="nav-item" onclick="location='ke-hoach-bay.html'"><span class="nav-ico">🗺</span> Lập kế hoạch bay</div>
+    <div class="nav-item" onclick="location='giam-sat.html'"><span class="nav-ico">◎</span> Giám sát real-time</div>
+    <div class="nav-item" onclick="location='thu-vien.html'"><span class="nav-ico">🖼</span> Thư viện lưu trữ</div>
+    <div class="nav-label">Vi phạm đất đai</div>
+    <div class="nav-item" onclick="location='vi-pham.html'"><span class="nav-ico">⚠</span> Danh sách vi phạm</div>
+    <div class="nav-item" onclick="location='vi-pham-chi-tiet.html'"><span class="nav-ico">⧉</span> Đối chiếu trước/sau</div>
+    <div class="nav-label">Hệ thống</div>
+    <div class="nav-item" onclick="location='bao-cao.html'"><span class="nav-ico">📊</span> Báo cáo & thống kê</div>
+    <div class="nav-item" onclick="location='cai-dat.html'"><span class="nav-ico">⚙</span> Cài đặt & phân quyền</div>
+    <div class="side-foot"><div class="avatar">NV</div><div class="who"><b>Nguyễn Văn A</b><span>Cán bộ điều hành</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><div class="crumb">Trang chủ</div><h1>Toàn cảnh bức tranh điều hành</h1>
+        <p class="desc">Cập nhật xu hướng bay và bản đồ hoạt động liên tục — ra quyết định chính xác ngay tại phòng điều hành.</p></div>
+      <div class="actions"><button class="btn">Xuất báo cáo</button><a class="btn btn-primary" href="ke-hoach-bay.html">+ Tạo nhiệm vụ bay</a></div>
+    </div>
+
+    <div class="hero-banner" style="background-image:url('assets/photos/hero-drone-flight.jpg')">
+      <div class="htext">
+        <h2>Điều hành thông minh — Quản lý từ trên cao</h2>
+        <p>Công cụ trọng tâm kiến tạo chính quyền số cấp xã/phường: quản lý hiệu quả hơn, minh bạch hơn, phục vụ người dân tốt hơn.</p>
+      </div>
+    </div>
+
+    <div class="grid g4">
+      <div class="card"><h3>Drone đang hoạt động</h3><div class="stat">3 / 8</div><div class="stat-sub"><span class="dot dot-green"></span> VN-883 đang tuần tra</div></div>
+      <div class="card"><h3>Nhiệm vụ hôm nay</h3><div class="stat">12</div><div class="stat-sub"><span class="trend-up">▲ 3</span> so với hôm qua</div></div>
+      <div class="card"><h3>Vi phạm mới phát hiện</h3><div class="stat">3</div><div class="stat-sub pill pill-red" style="margin-top:4px">Cần xử lý</div></div>
+      <div class="card"><h3>Đã xử lý trong tháng</h3><div class="stat">12</div><div class="stat-sub"><span class="dot dot-green"></span> Hoàn thành minh bạch</div></div>
+    </div>
+
+    <div class="section-title"><h2>Bản đồ hoạt động trực tiếp</h2><span class="link" onclick="location='giam-sat.html'">Xem giám sát real-time →</span></div>
+    <div class="map-mock" style="background:url('assets/photos/aerial-2.jpg') center/cover">
+      <div class="map-pin" style="top:38%;left:44%"></div>
+      <div class="map-label" style="top:30%;left:47%">VN-883 · Đang tuần tra</div>
+      <div class="map-pin red" style="top:60%;left:66%"></div>
+      <div class="map-label" style="top:66%;left:69%">Vi phạm mới · Thôn 4</div>
+      <div class="map-pin" style="top:58%;left:24%"></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card">
+        <h3>Nhiệm vụ bay</h3>
+        <p class="small row-click" style="cursor:pointer" onclick="location='ke-hoach-bay.html'">Nhiệm vụ A — Quét vùng Thôn 2 <b style="float:right">75%</b></p>
+        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+        <p class="small" style="margin-top:12px;cursor:pointer" onclick="location='ke-hoach-bay.html'">Nhiệm vụ B — Hành lang kênh Bắc <b style="float:right">45%</b></p>
+        <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
+        <p class="small" style="margin-top:12px;cursor:pointer" onclick="location='ke-hoach-bay.html'">Nhiệm vụ C — Quét điểm khu QH <b style="float:right">10%</b></p>
+        <div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>
+      </div>
+
+      <div class="card">
+        <h3>Ảnh / Video thu thập mới nhất</h3>
+        <div class="grid g2">
+          <div class="thumb" style="background-image:url('assets/photos/aerial-1.jpg')" onclick="location='thu-vien.html'"><span class="tag">IMG_1026_001</span></div>
+          <div class="thumb" style="background-image:url('assets/photos/aerial-2.jpg')" onclick="location='thu-vien.html'"><span class="play">▶</span><span class="tag">VID_1026_002</span></div>
+          <div class="thumb" style="background-image:url('assets/photos/aerial-3.jpg')" onclick="location='thu-vien.html'"><span class="tag">IMG_1026_003</span></div>
+          <div class="thumb" style="background-image:url('assets/photos/aerial-4.jpg')" onclick="location='thu-vien.html'"><span class="play">▶</span><span class="tag">VID_1026_004</span></div>
+        </div>
+        <span class="link" style="display:block;margin-top:12px" onclick="location='thu-vien.html'">Xem toàn bộ thư viện →</span>
+      </div>
+
+      <div class="card">
+        <h3>Tình trạng vi phạm</h3>
+        <div class="flex-between" style="padding:10px 0;border-bottom:1px solid var(--line)"><span>Vi phạm mới</span><span class="pill pill-red">3</span></div>
+        <div class="flex-between" style="padding:10px 0;border-bottom:1px solid var(--line)"><span>Đang xử lý</span><span class="pill pill-amber">5</span></div>
+        <div class="flex-between" style="padding:10px 0"><span>Đã xử lý</span><span class="pill pill-green">12</span></div>
+        <span class="link" style="display:block;margin-top:8px" onclick="location='vi-pham.html'">Xem danh sách vi phạm →</span>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body></html>
